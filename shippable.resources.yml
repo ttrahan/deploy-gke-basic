@@ -51,8 +51,7 @@ resources:
 
   - name: MyPodSpecRepo
     type: gitRepo
-    integration: dr-gh
+    integration: dr-github
     pointer:
       sourceName: trriplejay/sample_pipelines
       branch: master
-      
