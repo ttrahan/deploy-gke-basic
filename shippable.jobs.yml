@@ -30,6 +30,7 @@ jobs:
     type: runCLI
     steps:
       - IN: MyGkeConfig
-      - IN: MyPodSpecRepo
+      - IN: deploy-gke-basic-gke-cluster
+      #- IN: MyPodSpecRepo
       - TASK:
         - script: kubectl get namespaces
