@@ -6,22 +6,30 @@ jobs:
   #   steps:
   #     - OUT: deploy-gke-basic-image
 
-  - name: deploy-gke-basic-manifest
-    type: manifest
-    flags:
-      - deploy-gke-basic
-    steps:
-     - IN: deploy-gke-basic-image
-    #  - IN: deploy-gke-basic-docker-options
-    #  - IN: deploy-gke-basic-params
-    #  - IN: deploy-gke-basic-replicas
+  # - name: deploy-gke-basic-manifest
+  #   type: manifest
+  #   flags:
+  #     - deploy-gke-basic
+  #   steps:
+  #    - IN: deploy-gke-basic-image
+  #   #  - IN: deploy-gke-basic-docker-options
+  #   #  - IN: deploy-gke-basic-params
+  #   #  - IN: deploy-gke-basic-replicas
+  #
+  # - name: deploy-gke-basic-deploy
+  #   type: deploy
+  #   flags:
+  #     - deploy-gke-basic
+  #   steps:
+  #     - IN: deploy-gke-basic-manifest
+  #     - IN: deploy-gke-basic-gke-cluster
+  #     - TASK: managed
+  #       deployMethod: replace
 
-  - name: deploy-gke-basic-deploy
-    type: deploy
-    flags:
-      - deploy-gke-basic
+  - name: myCustomDeployment
+    type: runCLI
     steps:
-      - IN: deploy-gke-basic-manifest
-      - IN: deploy-gke-basic-gke-cluster
-      - TASK: managed
-        deployMethod: replace
+      - IN: MyGkeConfig
+      - IN: MyPodSpecRepo
+      - TASK:
+        - script: kubectl get namespaces

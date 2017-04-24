@@ -44,3 +44,15 @@ resources:
       sourceName : "deploy-gke-basic" #name of the cluster to which we are deploying
       region: "us-central-1f"
       namespace: "shippable"
+
+  - name: MyGkeConfig
+    type: cliConfig
+    integration: dr-gke
+
+  - name: MyPodSpecRepo
+    type: gitRepo
+    integration: dr-gh
+    pointer:
+      sourceName: trriplejay/sample_pipelines
+      branch: master
+      
