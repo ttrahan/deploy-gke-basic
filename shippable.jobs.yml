@@ -12,9 +12,9 @@ jobs:
       - deploy-gke-basic
     steps:
      - IN: deploy-gke-basic-image
-     - IN: deploy-gke-basic-docker-options
-     - IN: deploy-gke-basic-params
-     - IN: deploy-gke-basic-replicas
+    #  - IN: deploy-gke-basic-docker-options
+    #  - IN: deploy-gke-basic-params
+    #  - IN: deploy-gke-basic-replicas
 
   - name: deploy-gke-basic-deploy
     type: deploy
