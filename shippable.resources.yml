@@ -47,7 +47,7 @@ resources:
 
   - name: MyGkeConfig
     type: cliConfig
-    integration: dr-gke
+    integration: dr-aws
 
   - name: MyPodSpecRepo
     type: gitRepo
