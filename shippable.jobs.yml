@@ -1,0 +1,27 @@
+jobs:
+  - name: deploy-gke-basic_runCI
+    type: runCI
+    flags:
+      - deploy-gke-basic
+    steps:
+      - OUT: deploy-gke-basic-image
+
+  - name: deploy-gke-basic-manifest
+    type: manifest
+    flags:
+      - deploy-gke-basic
+    steps:
+     - IN: deploy-gke-basic-image
+     - IN: deploy-gke-basic-docker-options
+     - IN: deploy-gke-basic-params
+     - IN: deploy-gke-basic-replicas
+
+  - name: deploy-gke-basic-deploy
+    type: deploy
+    flags:
+      - deploy-gke-basic
+    steps:
+      - IN: deploy-gke-basic-manifest
+      - IN: deploy-gke-basic-ecs-cluster
+      - TASK: managed
+        deployMethod: replace

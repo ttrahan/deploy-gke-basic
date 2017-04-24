@@ -1,0 +1,46 @@
+resources:
+  - name: deploy-gke-basic-image
+    type: image
+    flags:
+      - deploy-gke-basic
+    integration: dr-ecr
+    pointer:
+      sourceName: "gcr.io/sample-gke/basic-node-deploy-gke"
+    seed:
+      versionName: "latest"
+
+  - name: deploy-gke-basic-docker-options
+    type: dockerOptions
+    flags:
+      - deploy-gke-basic
+    version:
+      memory: 100
+      portMappings:
+        - 80:80
+
+
+  - name: deploy-gke-basic-params
+    type: params
+    flags:
+      - deploy-gke-basic
+    version:
+      params:
+        PORT: 80
+        ENVIRONMENT: "dev"
+
+  - name: deploy-gke-basic-replicas
+    type: replicas
+    flags:
+      - deploy-gke-basic
+    version:
+      count: 1
+
+  - name: deploy-gke-basic-gke-cluster
+    type: cluster
+    flags:
+      - deploy-gke-basic
+    integration: dr-gke
+    pointer:
+      sourceName : "deploy-gke-basic" #name of the cluster to which we are deploying
+      region: "us-central-1f"
+      namespace: "shippable"
