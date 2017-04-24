@@ -22,6 +22,6 @@ jobs:
       - deploy-gke-basic
     steps:
       - IN: deploy-gke-basic-manifest
-      - IN: deploy-gke-basic-ecs-cluster
+      - IN: deploy-gke-basic-gke-cluster
       - TASK: managed
         deployMethod: replace
