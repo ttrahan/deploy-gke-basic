@@ -21,7 +21,7 @@ to Google Container Registry
 ## CI Reports on Shippable
 
 ### CI Integration View
-![CI Integration View](https://github.com/devops-recipes/deploy-ecs-basic/blob/master/public/resources/images/gcr-integration.png)
+![CI Integration View](https://github.com/devops-recipes/deploy-gke-basic/blob/master/public/resources/images/gcr-integration.png)
 
 ### CI Console Output
-![CI Console Output](https://github.com/devops-recipes/deploy-ecs-basic/blob/master/public/resources/images/console.jpg)
+![CI Console Output](https://github.com/devops-recipes/deploy-gke-basic/blob/master/public/resources/images/console.jpg)
