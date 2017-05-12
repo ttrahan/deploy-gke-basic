@@ -15,7 +15,7 @@ env:
     - CODE_COVERAGE_DIR=$SHIPPABLE_REPO_DIR/shippable/codecoverage
     - TESTS_LOC_DIR=$SHIPPABLE_REPO_DIR/tests
     - MOD_LOC=$SHIPPABLE_REPO_DIR/node_modules/.bin/
-    - GCR_REPO=679404489841.dkr.ecr.us-east-1.amazonaws.com/deploy-gke-basic
+    - GCR_REPO=ttrahan/deploy-gke-basic
 
 build:
 
@@ -43,5 +43,5 @@ integrations:
   # adding docker hub integration so that credentials are available to CI Job
   # http://docs.shippable.com/integrations/imageRegistries/ecr/
   hub:
-    - integrationName: dr-gcr
-      type: gcr
+    - integrationName: ttrahan-dh
+      type: docker
