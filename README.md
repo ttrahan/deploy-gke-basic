@@ -5,7 +5,7 @@
 ![AyeAye](https://github.com/devops-recipes/push-docker-hub/blob/master/public/resources/images/captain.png)
 
 A simple Node JS application with unit tests and coverage reports using mocha
-and istanbul. It also does a docker build once CI posses and then pushes the image
+and istanbul. It also does a docker build once CI passes and then pushes the image
 to Google Container Registry
 
 ## Run CI for this repo on Shippable
