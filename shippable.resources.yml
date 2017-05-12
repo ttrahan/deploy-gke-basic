@@ -3,11 +3,11 @@ resources:
     type: image
     flags:
       - deploy-gke-basic
-    integration: dr-ecr
+    integration: ttrahan-dh
     pointer:
-      sourceName: "gcr.io/sample-gke/basic-node-deploy-gke"
+      sourceName: "ttrahan/dpr-test-repo"
     seed:
-      versionName: "latest"
+      versionName: "dev.1"
 
   - name: deploy-gke-basic-docker-options
     type: dockerOptions
@@ -16,8 +16,22 @@ resources:
     version:
       memory: 100
       portMappings:
-        - 80:80
-
+        - :8091
+        - :8092
+        - :8093
+        - :8094
+        - :11210
+        - :11211
+      volumes:
+        - "elastic-data:/data"
+      pod:
+        imagePullSecrets:
+          - name: tsaferegistrykey
+          - name: dbAdminPassword
+        volumes:
+          - name: task-pv-volume
+            persistentVolumeClaim:
+              claimName: task-pv-claim
 
   - name: deploy-gke-basic-params
     type: params
@@ -25,8 +39,10 @@ resources:
       - deploy-gke-basic
     version:
       params:
-        PORT: 80
-        ENVIRONMENT: "dev"
+        ADMIN_LOGIN: Administrator
+        CLUSTER_RAM_QUOTA: "3072"
+        INDEX_RAM_SIZE: "512"
+        DATA_RAM_SIZE: "2560"
 
   - name: deploy-gke-basic-replicas
     type: replicas
@@ -39,8 +55,8 @@ resources:
     type: cluster
     flags:
       - deploy-gke-basic
-    integration: dr-gke
+    integration: ttrahan-kube
     pointer:
-      sourceName : "deploy-gke-basic" #name of the cluster to which we are deploying
-      region: "us-central-1f"
-      namespace: "shippable"
+      sourceName : "useast1.dev.example_kube_cluster.com" 
+      region: "us-east-1a"
+      namespace: "test"
