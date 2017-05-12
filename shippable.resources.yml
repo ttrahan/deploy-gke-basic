@@ -23,11 +23,10 @@ resources:
         - :11210
         - :11211
       volumes:
-        - "elastic-data:/"
+        - "task-pv-volume:/"
       pod:
         imagePullSecrets:
-          - name: tsaferegistrykey
-          - name: dbAdminPassword
+          - name: mysecret
         volumes:
           - name: task-pv-volume
             persistentVolumeClaim:
