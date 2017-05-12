@@ -23,7 +23,7 @@ resources:
         - :11210
         - :11211
       volumes:
-        - "elastic-data:/data"
+        - "elastic-data:/"
       pod:
         imagePullSecrets:
           - name: tsaferegistrykey
