@@ -23,14 +23,14 @@ resources:
         - :11210
         - :11211
       volumes:
-        - "task-pv-volume:/"
+        - "task-pv-volume-1:/"
       pod:
         imagePullSecrets:
           - name: mysecret
         volumes:
-          - name: task-pv-volume
+          - name: task-pv-volume-1
             persistentVolumeClaim:
-              claimName: task-pv-claim
+              claimName: task-pv-claim-1
 
   - name: deploy-gke-basic-params
     type: params
